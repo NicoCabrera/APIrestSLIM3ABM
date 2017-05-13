@@ -4,6 +4,7 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 require 'vendor/autoload.php';
+require_once 'genericDAO.php';
 
 $app = new \Slim\App;
 $app->get('/hello/{name}', function (Request $request, Response $response) {
@@ -11,6 +12,11 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
     $response->getBody()->write("Hello, $name");
 
     return $response;
+});
+
+$app->get('/table/{table}', function (Request $request, Response $response) {
+    $table = $request->getAttribute('table');
+    return GenericDAO::getAll($table);
 });
 $app->run();
 
