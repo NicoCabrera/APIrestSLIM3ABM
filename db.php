@@ -7,7 +7,7 @@ class DB{
     {
         try { 
             $DNS = 'mysql:host=localhost;';
-            $DBName = 'dbname=ejemploabm;';
+            $DBName = 'dbname=abmexample;';
             $username = 'root';
             $password = '';
 
